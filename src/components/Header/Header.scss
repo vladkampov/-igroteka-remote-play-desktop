@@ -1,0 +1,87 @@
+.Header {
+  box-shadow: 0px 5px 10px -5px rgba(0, 0, 0, 0.3);
+  .navbar-inverse .navbar-brand {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 8px;
+    color: #ffffff;
+
+    span.first {
+      color: #ff6363;
+    }
+
+    span.second {
+      color: #4774ff
+    }
+  }
+  
+  .navbar-inverse .navbar-nav > li > a {
+    color: #e7e7e7;
+  }
+
+  .nav {
+    li[role="presentation"],
+    #user-dropdown {
+      text-transform: uppercase;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 10px;
+    }
+  }
+
+  #user-dropdown {
+    padding: 4px;
+
+    img {
+      max-height: 35px;
+      max-height: 40px;
+    }
+
+    .caret {
+      display: none;
+    }
+  }
+
+  .notifications {
+    &.has-notifications {
+      .dropdown-toggle {
+        color: #ffffff;
+
+        .glyphicon:after {
+          content: '';
+          display: block;
+          width: 7px;
+          height: 7px;
+          background-color: red;
+          border-radius: 50%;
+          position: absolute;
+          top: -5px;
+          right: -5px;
+        }
+      }
+    }
+
+    .caret {
+      display: none;
+    }
+
+    li {
+      display: block;
+      padding: 3px 20px;
+      clear: both;
+      font-weight: 400;
+      line-height: 1.42857143;
+      color: #333;
+      white-space: nowrap;
+      
+      a {
+        display: inline;
+        padding: 0;
+        margin-left: 10px;
+        color: #e7e7e7;
+
+        &:hover {
+          background: none;
+        }
+      }
+    }
+  }
+}

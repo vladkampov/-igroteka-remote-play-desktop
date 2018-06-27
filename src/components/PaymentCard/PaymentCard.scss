@@ -1,0 +1,55 @@
+.PaymentCard {
+  border: 1px solid #283d82;
+  margin-top: 20px;
+  box-shadow: 0px 5px 10px -5px rgba(0, 0, 0, 0.3);
+
+  & > * {
+    padding: 0 20px;
+
+    &:first-child,
+    &:last-child {
+      padding: 10px 20px;
+    }
+  }
+
+  .name {
+    margin-top: 0;
+    text-align: center;
+    border-bottom: 1px solid #e7e7e7;
+    background: #0a5494;
+    color: #ffffff;
+  }
+
+  .description {
+    white-space: pre-wrap;
+  }
+
+  .footer {
+    background: #0a5494;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .price {
+      font-weight: bold;
+      font-size: 12px;
+      color: #ffffff;
+      font-family: 'Press Start 2P', cursive;
+    }
+  }
+
+  &.featured {
+    margin-top: 15px;
+    box-shadow: 0px 5px 10px -5px #000000;
+    border-bottom: none;
+
+    .name {
+      background: #4773ff;
+      font-size: 20px;
+    }
+
+    .price {
+      font-size: 16px;
+    }
+  }
+}

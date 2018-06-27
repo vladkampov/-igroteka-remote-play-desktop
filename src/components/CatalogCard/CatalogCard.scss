@@ -1,0 +1,52 @@
+.CatalogCard {
+  border: 1px solid #e7e7e7;
+  position: relative;
+  background: #4774ff;
+  left: 50%;
+  right: 50%;
+  margin: auto;
+  bottom: 50%;
+  top: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+  box-shadow: 0px 5px 6px 0px rgba(0, 0, 0, 0.68);
+  
+  a {
+    color: #ffffff;
+    text-decoration: none;
+    display: block;
+    position: relative;
+
+    &:hover {
+      color: #ffffff;
+
+      .info-bar {
+        padding-top: 20px;
+        // padding-bottom: 20px;
+      }
+    }
+  }
+
+  .info-bar {
+    background: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    width: 100%;
+    padding: 10px 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    bottom: 0;
+    transition: 0.2s;
+
+    font-family: 'Press Start 2P', cursive;
+    font-size: 10px;
+
+    .genres {
+      margin-left: 10px;
+    
+      .badge {
+        font-size: 6px;
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+.Slider {
+  margin-top: -20px;
+  max-height: 350px;
+  cursor: pointer;
+  box-shadow: inset 0px 5px 10px -5px rgba(0, 0, 0, 0.3);
+
+  .item {
+    max-height: 350px;
+    overflow: hidden;
+
+    img {
+      height: auto;
+      width: 100%;
+    }
+  }
+}

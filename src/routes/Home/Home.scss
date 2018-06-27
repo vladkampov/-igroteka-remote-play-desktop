@@ -1,0 +1,70 @@
+.Home {
+  .container .container {
+    width: initial;
+    padding: 0;
+  }
+
+  .btn {
+    text-transform: uppercase;
+  }
+
+  .top {
+    margin-top: -20px;
+    padding: 70px 0 50px;
+    background-image: url('/texture.jpg');
+    background-size: auto 100%;
+    text-shadow: 0px 0px 30px rgba(0, 0, 0, 0.74);
+    background-attachment: fixed;
+
+    .title {
+      span.first {
+        color: #ff6363;
+      }
+
+      span.second {
+        color: #4774ff
+      }
+    }
+
+    .callToAction {
+      margin-top: 50px;
+    }
+  }
+
+  .FormLogin {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 25px 0;
+
+    .form-group {
+      flex-grow: 2;
+      margin: 0 10px 0 0;
+
+      .help-block {
+        position: absolute;
+      }
+    }
+
+    .btn {
+      flex-grow: 1;
+    }
+  }
+
+  .help-links {
+    text-align: center;
+
+    a {
+      color: #e7e7e7;
+
+      &:hover {
+        color: white;
+      }
+    }
+
+    & > span {
+      margin: 0 15px;
+      opacity: 0;
+    }
+  }
+}
