@@ -1,9 +1,52 @@
 const { app, BrowserWindow, shell } = require('electron');
+const openvpnBin = require('openvpn-bin');
+const openvpnmanager = require('node-openvpn');
 const isDev = require('electron-is-dev');
+const path = require('path');
+
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let win;
+
+
+openvpnBin.initialize('openvpn', {
+  host: 'vpn.zaborona.help',
+  port: 1194,
+  config: path.normalize('public/config.ovpn'),
+}).then(() => {
+  const managerInstance = openvpnmanager.connect({
+    host: 'vpn.zaborona.help',
+    port: 1194,
+    timeout: 1500,
+    logpath: 'log.txt',
+  });
+
+  managerInstance.on('connected', () => {
+    console.log('connected');
+    openvpnmanager.authorize({
+      user: '',
+      pass: '',
+    })
+      .then(() => createWindow())
+      .catch(err => console.log('error', err));
+  });
+
+  managerInstance.on('console-output', output => {
+    console.log('output', output);
+  });
+
+  managerInstance.on('error', error => {
+    console.log('error', error);
+  })
+
+
+  managerInstance.on('disconnected', () => {
+    console.log('disconnected');
+    openvpnmanager.destroy();
+  });
+}).catch(err => console.log(err));
+
 
 function createWindow() {
   // Create the browser window.
@@ -12,7 +55,7 @@ function createWindow() {
   win.setResizable(false);
 
   // and load the index.html of the app.
-  win.loadURL(isDev ? 'http://localhost:3001' : `file://${path.join(__dirname, '../build/index.html')}`);
+  win.loadURL(isDev ? 'http://vk.com' : `file://${path.join(__dirname, '../build/index.html')}`);
 
   // Open the DevTools.
   win.webContents.openDevTools();
@@ -40,6 +83,7 @@ app.on('ready', createWindow);
 app.on('window-all-closed', () => {
   // On macOS it is common for applications and their menu bar
   // to stay active until the user quits explicitly with Cmd + Q
+  // openvpnmanager.disconnect();
   if (process.platform !== 'darwin') {
     app.quit();
   }
@@ -52,6 +96,3 @@ app.on('activate', () => {
     createWindow();
   }
 });
-
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.
