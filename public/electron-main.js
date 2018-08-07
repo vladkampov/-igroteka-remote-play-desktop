@@ -1,25 +1,7 @@
-const { app, BrowserWindow, shell } = require('electron');
+const { app, BrowserWindow, shell, ipcMain } = require('electron');
 const isDev = require('electron-is-dev');
 const path = require('path');
-
-// const Sudoer = require('electron-sudo').default;
-
-// const sudoer = new Sudoer({ name: 'electron sudo application' });
-
-// const cp = sudoer.spawn('echo', ['$PARAM'], {env: {PARAM: 'VALUE'}})
-//   .then(cp => {
-//     cp.stdout.on('data', data => {
-//     console.log(`[DATA] ${data}`);
-//   });
-
-//   cp.stderr.on('data', data => {
-//     console.log(`[DATA] ${data}`);
-//   });
-
-//   cp.on('close', code => {
-//     console.log(`[EXIT] ${code}`);
-//   });
-// });
+const Connect = require('./connect');
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -73,4 +55,13 @@ app.on('activate', () => {
   if (win === null) {
     createWindow();
   }
+});
+
+ipcMain.on('Play', function (event) {
+  console.log('Start Ovpn Play');
+  Connect.Connect(win);
+});
+ipcMain.on('Demo', function (event) {
+  console.log('Start Ovpn Demo');
+  Connect.Connect(win);
 });

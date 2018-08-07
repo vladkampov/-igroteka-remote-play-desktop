@@ -1,6 +1,7 @@
 {
   "extends": ["eslint-config-airbnb", "react-app"],
   "rules": {
+    "linebreak-style": 0,
     "class-methods-use-this": ["error"],
     "no-param-reassign": ["error", { "props": false }],
     "indent": ["warn", 2, {"SwitchCase": 1}],
