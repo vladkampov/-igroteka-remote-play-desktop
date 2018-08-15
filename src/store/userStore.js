@@ -95,7 +95,7 @@ export default class UserStore {
       return data;
     });
 
-  @action checkDemoHistory = () => this.makeCall(checkDemoHistory);
+  @action checkDemoHistory = fprint => this.makeCall(checkDemoHistory, this.userId, fprint);
   // .then(res => console.log(res));
 
   @action createDemoHistory = data => this.makeCall(createDemoHistory, data);
