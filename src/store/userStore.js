@@ -2,6 +2,7 @@ import { observable, action, computed } from 'mobx';
 import { updateApi } from '../api';
 import { localStorage } from '../utils';
 import { login, register, getUser, resetPassword, recoverPassword, updateUser } from '../api/user';
+import { checkDemoHistory, createDemoHistory } from '../api/demoHistory';
 import { markNotificationReaded } from '../api/notifications';
 
 export default class UserStore {
@@ -25,6 +26,7 @@ export default class UserStore {
   @observable notifications = {};
   @observable isLoading = false;
   @observable loadingError = false;
+  @observable demoAvailable = false;
 
   makeCall = (action, ...rest) => {
     this.isLoading = true;
@@ -92,6 +94,11 @@ export default class UserStore {
       localStorage.setItem('user', JSON.stringify(data));
       return data;
     });
+
+  @action checkDemoHistory = () => this.makeCall(checkDemoHistory);
+  // .then(res => console.log(res));
+
+  @action createDemoHistory = data => this.makeCall(createDemoHistory, data);
 
   @action markNotificationReaded = id => markNotificationReaded(id)
     .then(({ data }) => {

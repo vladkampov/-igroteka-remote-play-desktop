@@ -50,8 +50,10 @@ export default {
     profile: {
       subscriptionLeft: '{left} left',
       till: 'till {end}',
-      noSubscriptions: 'You have no active subscription',
-      noSubscriptionButton: 'AVAILABLE OFFERS',
+      noSubscription: 'You have no active subscription yet',
+      noSubscriptionLink: 'Visit Website',
+      noSubscriptionDescription: 'At the moment you can play Demo',
+      noSubscriptionDescriptionNoDemo: 'You\ve already played demo',
       activeSubscription: 'You have {paymentType} subscription for {consoleGroup}.',
       renewSubscription: 'RENEW SUBSCRIPTION',
       consoleTypeDetails: 'Console details',

@@ -1,6 +1,6 @@
+const path = require('path');
 const { app, BrowserWindow, shell, ipcMain } = require('electron');
 const isDev = require('electron-is-dev');
-const path = require('path');
 const Connect = require('./connect');
 
 // Keep a global reference of the window object, if you don't, the window will
@@ -57,11 +57,11 @@ app.on('activate', () => {
   }
 });
 
-ipcMain.on('Play', function (event) {
+ipcMain.on('Play', () => {
   console.log('Start Ovpn Play');
   Connect.Connect(win);
 });
-ipcMain.on('Demo', function (event) {
+ipcMain.on('Demo', () => {
   console.log('Start Ovpn Demo');
   Connect.Connect(win);
 });

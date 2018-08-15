@@ -1,4 +1,6 @@
 import React, { Component, Fragment } from 'react';
+// import Fingerprint2 from 'fingerprintjs2';
+// import { Buffer } from 'buffer';
 import { observer, inject } from 'mobx-react';
 import { Grid, Row, Col, Button, ListGroup, ListGroupItem, Tooltip, OverlayTrigger } from 'react-bootstrap';
 import { FormattedMessage, injectIntl } from 'react-intl';
@@ -18,7 +20,7 @@ class Profile extends Component {
   }
 
   componentDidMount() {
-    const { userStore, consoleGroupStore, paymentTypeStore } = this.props;
+    const { userStore, consoleGroupStore, paymentTypeStore, history } = this.props;
 
     userStore.getUser()
       .then(({ subscriptions }) => {
@@ -39,9 +41,20 @@ class Profile extends Component {
             this.setState({ consoleGroupObj });
             return consoleGroupObj;
           });
-      });
+        return null;
+      })
+      .then(userStore.checkDemoHistory)
+      .catch(err => (err.status === 401 ? history.push('/') : null));
   }
 
+  handlePlay = str => {
+    // (new Fingerprint2()).get((res, comp) => {
+    //   // console.log(window.btoa(JSON.stringify(comp)).length);
+
+    //   console.log(new Blob(Buffer.from(JSON.stringify(comp))));
+    // });
+    window.play(str);
+  }
 
   renderGenreTooltip= text => (
     <Tooltip id="genre-tooltip">{text}</Tooltip>
@@ -141,15 +154,27 @@ class Profile extends Component {
                   <FormattedMessage id="profile.noSubscriptionLink" />
                 </a>
               </div>
+              <p><br /><FormattedMessage id="profile.noSubscriptionDescription" /></p>
             </Fragment>
           )}
         </Grid>
         <div className="profile-footer">
           <Grid>
-            <Button bsSize="large" bsStyle="warning">
-              <FormattedMessage id="profile.playDemo" />
-            </Button>
-            <Button bsSize="large" bsStyle="success" disabled={!activeSubscription}>
+            {userStore.demoAvailable && (
+              <Button
+                bsSize="large"
+                bsStyle="warning"
+                onClick={() => this.handlePlay('Demo')}
+              >
+                <FormattedMessage id="profile.playDemo" />
+              </Button>
+            )}
+            <Button
+              bsSize="large"
+              bsStyle="success"
+              disabled={!activeSubscription}
+              onClick={() => this.handlePlay('Play')}
+            >
               <FormattedMessage id="profile.play" />
             </Button>
           </Grid>
