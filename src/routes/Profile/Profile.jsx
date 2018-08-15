@@ -105,7 +105,7 @@ class Profile extends Component {
               </div>
               <div className="links">
                 <a
-                  href={`${config('WEBSITE_URL')}/profile}`}
+                  href={`${config('WEBSITE_URL')}/profile`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn-default"
