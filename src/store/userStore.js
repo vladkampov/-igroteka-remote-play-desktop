@@ -95,10 +95,12 @@ export default class UserStore {
       return data;
     });
 
-  @action checkDemoHistory = fprint => this.makeCall(checkDemoHistory, this.userId, fprint);
-  // .then(res => console.log(res));
+  @action checkDemoHistory = fprint => this.makeCall(checkDemoHistory, this.userId, fprint)
+    .then(res => {
+      this.demoAvailable = res;
+    });
 
-  @action createDemoHistory = data => this.makeCall(createDemoHistory, data);
+  @action createDemoHistory = fprint => this.makeCall(createDemoHistory, this.userId, fprint);
 
   @action markNotificationReaded = id => markNotificationReaded(id)
     .then(({ data }) => {

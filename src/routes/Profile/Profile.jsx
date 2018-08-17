@@ -1,11 +1,10 @@
 import React, { Component, Fragment } from 'react';
-// import Fingerprint2 from 'fingerprintjs2';
-// import { Buffer } from 'buffer';
 import { observer, inject } from 'mobx-react';
 import { Grid, Row, Col, Button, ListGroup, ListGroupItem, Tooltip, OverlayTrigger } from 'react-bootstrap';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import moment from 'moment';
 import { Loader, Header } from '../../components';
+import { getFingerprint } from '../../utils';
 import config from '../../config';
 import './Profile.scss';
 
@@ -43,16 +42,15 @@ class Profile extends Component {
           });
         return null;
       })
-      .then(userStore.checkDemoHistory)
+      .then(() => getFingerprint(hash => userStore.checkDemoHistory(hash)))
       .catch(err => (err.status === 401 ? history.push('/') : null));
   }
 
   handlePlay = str => {
-    // (new Fingerprint2()).get((res, comp) => {
-    //   // console.log(window.btoa(JSON.stringify(comp)).length);
+    if (str === 'Demo') {
+      getFingerprint(hash => this.props.userStore.createDemoHistory(hash));
+    }
 
-    //   console.log(new Blob(Buffer.from(JSON.stringify(comp))));
-    // });
     window.play(str);
   }
 
