@@ -9,8 +9,15 @@ let win;
 
 
 function createWindow() {
+  console.log(path.join(__dirname, '../public/Icon.ico'));
   // Create the browser window.
-  win = new BrowserWindow({ width: 800, height: 600, nativeWindowOpen: true, frame: false });
+  win = new BrowserWindow({
+    width: 800,
+    height: 400,
+    nativeWindowOpen: true,
+    title: 'itekaRemotePlay',
+    icon: isDev ? 'http://localhost:3001/Icon.ico' : `file://${path.join(__dirname, '../build/Icon.ico')}`,
+  });
 
   win.setResizable(false);
 
@@ -64,4 +71,8 @@ ipcMain.on('Play', () => {
 ipcMain.on('Demo', () => {
   console.log('Start Ovpn Demo');
   Connect.Connect(win);
+});
+ipcMain.on('Close', () => {
+  console.log('Close app');
+  app.quit();
 });

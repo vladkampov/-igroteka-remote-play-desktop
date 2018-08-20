@@ -2,6 +2,7 @@ import { observable, action } from 'mobx';
 import { configureValidator } from 'reactive-mobx-form';
 import moment from 'moment';
 import { localStorage } from '../utils';
+import checkVersion from '../api/version';
 import * as locales from '../locales';
 
 
@@ -17,6 +18,7 @@ export default class UiStore {
 
   @observable locale = '';
   @observable localeMessages = {};
+  @observable clientOutdated = null; // { Version: '0.0.1', url: '' }
 
   detectLocale = () => {
     const supported = ['en']; // , 'uk', 'ru'
@@ -43,4 +45,13 @@ export default class UiStore {
     configureValidator({ language: lang });
     moment.locale(lang);
   };
+
+  @action checkVersion = () => checkVersion()
+    .then(({ data }) => {
+      if (typeof data === 'object') {
+        this.clientOutdated = data;
+      }
+
+      return data;
+    });
 }

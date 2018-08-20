@@ -9,3 +9,4 @@ export { default as PrivateRoute } from './PrivateRoute';
 export { default as PaymentCard } from './PaymentCard';
 export { default as Slider } from './Slider';
 export { default as GamePad } from './GamePad';
+export { default as ModalUpdate } from './ModalUpdate';

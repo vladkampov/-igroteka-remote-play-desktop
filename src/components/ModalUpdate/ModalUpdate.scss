@@ -1,0 +1,18 @@
+.ModalUpdate {
+  .modal {
+    background: rgba(0, 0, 0, 0.7);
+
+    &-content {
+      background: #222222;
+    }
+
+    &-header,
+    &-footer {
+      border: none;
+    }
+
+    &-body {
+      background: #013d71;
+    }
+  }
+}

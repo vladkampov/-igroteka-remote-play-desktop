@@ -1,5 +1,6 @@
 {
   "name": "igroteka-remote-play",
+  "productName": "itekaRemotePlay",
   "version": "0.1.0",
   "private": true,
   "main": "public/electron-main.js",

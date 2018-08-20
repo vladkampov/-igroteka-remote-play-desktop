@@ -84,5 +84,10 @@ export default {
       subtitle: 'To play Consoles games on your PC',
       callToAction: 'Learn more on website',
     },
+    modalUpdate: {
+      title: 'The new version is avalaible',
+      body: 'Please download and install the latest update to continue enjoying our service :)',
+      button: 'Download',
+    },
   }),
 };
