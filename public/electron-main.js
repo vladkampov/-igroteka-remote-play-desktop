@@ -17,6 +17,7 @@ function createWindow() {
     nativeWindowOpen: true,
     title: 'itekaRemotePlay',
     icon: isDev ? 'http://localhost:3001/Icon.ico' : `file://${path.join(__dirname, '../build/Icon.ico')}`,
+    devTools: isDev,
   });
 
   win.setResizable(false);
