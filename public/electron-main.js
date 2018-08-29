@@ -16,7 +16,7 @@ function createWindow() {
     height: 400,
     nativeWindowOpen: true,
     title: 'itekaRemotePlay',
-    icon: isDev ? 'http://localhost:3001/Icon.ico' : `file://${path.join(__dirname, '../build/Icon.ico')}`,
+    icon: isDev ? 'http://localhost:3001/Icon.ico' : `file://${path.join(__dirname, '../build/icon.ico')}`,
     devTools: isDev,
   });
 

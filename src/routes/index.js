@@ -32,7 +32,7 @@ export default () => (
 
         {/* errors */}
         <Route path="/not-authorized" component={Wrapped.NotAuthorized} />
-        <Route path="/*" component={Wrapped.NotFound} />
+        <Route path="/*" component={Wrapped.Home} />
       </Switch>
     </Fragment>
   </Router>
