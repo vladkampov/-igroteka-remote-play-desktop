@@ -51,13 +51,13 @@
     </MappingAction>
     <MappingAction>
       <Name>R1</Name>
-      <Key>Y</Key>
+      <Key>E</Key>
       <Property>R1</Property>
       <Value xsi:type="xsd:boolean">true</Value>
     </MappingAction>
     <MappingAction>
       <Name>L1</Name>
-      <Key>NumPad6</Key>
+      <Key>Q</Key>
       <Property>L1</Property>
       <Value xsi:type="xsd:boolean">true</Value>
     </MappingAction>
@@ -75,25 +75,25 @@
     </MappingAction>
     <MappingAction>
       <Name>Triangle</Name>
-      <Key>F</Key>
+      <Key>C</Key>
       <Property>Triangle</Property>
       <Value xsi:type="xsd:boolean">true</Value>
     </MappingAction>
     <MappingAction>
       <Name>Circle</Name>
-      <Key>R</Key>
+      <Key>Escape</Key>
       <Property>Circle</Property>
       <Value xsi:type="xsd:boolean">true</Value>
     </MappingAction>
     <MappingAction>
       <Name>Cross</Name>
-      <Key>Space</Key>
+      <Key>Return</Key>
       <Property>Cross</Property>
       <Value xsi:type="xsd:boolean">true</Value>
     </MappingAction>
     <MappingAction>
       <Name>Square</Name>
-      <Key>NumPad9</Key>
+      <Key>V</Key>
       <Property>Square</Property>
       <Value xsi:type="xsd:boolean">true</Value>
     </MappingAction>
@@ -135,7 +135,7 @@
     </MappingAction>
     <MappingAction>
       <Name>Share</Name>
-      <Key>F5</Key>
+      <Key>NumPad0</Key>
       <Property>Share</Property>
       <Value xsi:type="xsd:boolean">true</Value>
     </MappingAction>
@@ -157,17 +157,17 @@
       <Property>PS</Property>
       <Value xsi:type="xsd:boolean">true</Value>
     </MappingAction>
+    <MappingAction>
+      <Name>PS</Name>
+      <Key>D2</Key>
+      <Property>PS</Property>
+      <Value xsi:type="xsd:boolean">true</Value>
+    </MappingAction>
   </Mappings>
-  <EnableMouseInput>false</EnableMouseInput>
-  <MouseSensitivity>1.2000000000000002</MouseSensitivity>
-  <MouseDecayRate>2.2</MouseDecayRate>
-  <MouseDecayThreshold>1.1</MouseDecayThreshold>
-  <MouseAnalogDeadzone>20</MouseAnalogDeadzone>
-  <MouseMakeupSpeed>350</MouseMakeupSpeed>
-  <MouseMovementAnalog>Right</MouseMovementAnalog>
-  <MouseInvertXAxis>false</MouseInvertXAxis>
-  <MouseInvertYAxis>false</MouseInvertYAxis>
-  <LeftMouseMapping>11</LeftMouseMapping>
+  <MouseSensitivity>1</MouseSensitivity>
+  <MouseDecayRate>0</MouseDecayRate>
+  <MouseMakeupSpeed>1000</MouseMakeupSpeed>
+  <LeftMouseMapping>12</LeftMouseMapping>
   <RightMouseMapping>10</RightMouseMapping>
-  <MiddleMouseMapping>0</MiddleMouseMapping>
+  <MiddleMouseMapping>9</MiddleMouseMapping>
 </BindingsContainer>

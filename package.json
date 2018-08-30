@@ -16,6 +16,7 @@
       "extraResources": "assets/openvpn_osx/openvpn"
     },
     "win": {
+      "asar": false,
       "target": [
         {
           "target": "nsis",
