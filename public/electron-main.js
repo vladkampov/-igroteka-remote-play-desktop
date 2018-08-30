@@ -1,5 +1,5 @@
 const path = require('path');
-const { app, BrowserWindow, shell, ipcMain } = require('electron');
+const { app, BrowserWindow, shell, ipcMain, session} = require('electron');
 const isDev = require('electron-is-dev');
 const Connect = require('./connect');
 
@@ -12,8 +12,8 @@ function createWindow() {
   console.log(path.join(__dirname, '../public/Icon.ico'));
   // Create the browser window.
   win = new BrowserWindow({
-    width: 800,
-    height: 400,
+    width: 1100,
+    height: 700,
     nativeWindowOpen: true,
     title: 'itekaRemotePlay',
     icon: isDev ? 'http://localhost:3001/Icon.ico' : `file://${path.join(__dirname, '../build/icon.ico')}`,
@@ -26,7 +26,7 @@ function createWindow() {
   win.loadURL(isDev ? 'http://localhost:3001' : `file://${path.join(__dirname, '../build/index.html')}`);
 
   // Open the DevTools.
-  win.webContents.openDevTools();
+  //win.webContents.openDevTools();
 
   win.webContents.on('new-window', (e, url) => {
     e.preventDefault();
